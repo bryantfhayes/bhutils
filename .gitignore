@@ -9,3 +9,6 @@
 
 # MacOS artifacts
 .DS*
+
+# Build Folder
+/build/
