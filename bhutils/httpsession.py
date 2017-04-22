@@ -10,6 +10,9 @@ class HTTPSession(object):
 	def __init__(self):
 		self.session = requests.Session()
 
+	def __del__(self):
+		self.session.close()
+
 	def POST(self, root, path, data, headers=None):
 		''' Issue a POST http web request given a path and data for args '''
 		
@@ -24,30 +27,13 @@ class HTTPSession(object):
 			result = self.session.post(url, data=data, headers=headers).json()
 			return result
 		except requests.exceptions.RequestException as e:
-			print("ERROR: {}".format(e))
-			raise
+			raise(e)
 
 	def GET(self, root, path, data):
 		''' Issue a GET http web request given a path and data payload '''
 		try:
 			url = root + path
-			result = self.session.get(url, data).json()
+			result = self.session.get(url, data=data).json()
 			return result
 		except requests.exceptions.RequestException as e:
-			print("ERROR: {}".format(e))
-			raise
-
-# def main():
-# 	''' Test code '''
-# 	# Get instance of manager
-# 	session = HTTPManager()
-
-# 	# issue a test POST request
-# 	rv = session.POST("http://httpbin.org", "/post", {})
-# 	if rv != None:
-# 		print(rv)
-
-# 	# issue a test GET request
-# 	rv = session.GET("http://httpbin.org", "/get", {})
-# 	if rv != None:
-# 		print(rv)
+			raise(e)
