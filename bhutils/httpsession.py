@@ -7,33 +7,50 @@ import sys, requests, json
 
 # TODO(bhayes): Add support for PUT, DELETE, UPDATE requests
 class HTTPSession(object):
-	def __init__(self):
-		self.session = requests.Session()
+    def __init__(self):
+        self.session = requests.Session()
 
-	def __del__(self):
-		self.session.close()
+    def __del__(self):
+        self.session.close()
 
-	def POST(self, root, path, data, headers=None):
-		''' Issue a POST http web request given a path and data for args '''
-		
-		# Load headers if applicable
-		if (headers == None):
-			headers = {"content-type" : "application/json"}
-		else:
-			headers = headers
+    def POST(self, root, path, data, headers=None):
+        ''' Issue a POST http web request given a path and data for args '''
+        
+        # Load headers if applicable
+        if (headers == None):
+            headers = {"content-type" : "application/json"}
+        else:
+            headers = headers
 
-		try:
-			url = root + path
-			result = self.session.post(url, data=data, headers=headers).json()
-			return result
-		except requests.exceptions.RequestException as e:
-			raise(e)
+        try:
+            url = root + path
+            result = self.session.post(url, data=data, headers=headers).json()
+            return result
+        except requests.exceptions.RequestException as e:
+            raise(e)
 
-	def GET(self, root, path, data):
-		''' Issue a GET http web request given a path and data payload '''
-		try:
-			url = root + path
-			result = self.session.get(url, data=data).json()
-			return result
-		except requests.exceptions.RequestException as e:
-			raise(e)
+    def PUT(self, root, path, data, headers=None):
+        ''' Issue a PUT http web request given a path and data for args '''
+        
+        # Load headers if applicable
+        if (headers == None):
+            headers = {"content-type" : "application/json"}
+        else:
+            headers = headers
+
+        try:
+            url = root + path
+            result = self.session.put(url, data=data, headers=headers).json()
+            return result
+        except requests.exceptions.RequestException as e:
+            raise(e)
+
+
+    def GET(self, root, path, data):
+        ''' Issue a GET http web request given a path and data payload '''
+        try:
+            url = root + path
+            result = self.session.get(url, data=data).json()
+            return result
+        except requests.exceptions.RequestException as e:
+            raise(e)
