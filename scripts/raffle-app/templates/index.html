@@ -19,12 +19,25 @@
       });
     });
 
+    function randomName(i, data) {
+      $("#winnerName").text(data.all[i % data.length]);
+      if (i > 0) {
+        setTimeout(function() {randomName(i-1, data);}, 75)
+      } else {
+        showWinner(data.result)
+      }
+    }
+
+    function showWinner(winner) {
+      $("#winnerName").text(winner);
+    }
+
     $(function() {
       $('#btnDraw').bind('click', function() {
         $.getJSON('/_get_winner', {
 
         }, function(data) {
-          $("#winnerName").text(data.result);
+          setTimeout(function() {randomName(data.cycles, data);}, 75)
         });
         return false;
       });
@@ -58,13 +71,19 @@
     body { background: #2E2E2E !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
     h1 {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 70px;
+      font-size: 3.5vw;
+      line-height: 14px;
+      color: #FFFFFF;
+    }
+    h5 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 2.0vw;
       line-height: 14px;
       color: #FFFFFF;
     }
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 60px;
+      font-size: 3.5vw;
       line-height: 14px;
       color: #FFFFFF;
     }
@@ -84,11 +103,13 @@
         <br>
         <br>
         <br>
-        <h5>AND THE WINNER IS...</h2>
+        <h5>AND THE WINNER IS...</h5>
+        <br>
         <br>
         <body id="yellow">
           <h1 id="winnerName">???</h1>
         </body>
+        <br>
         <br>
         <br>
         <br>
@@ -97,29 +118,6 @@
               <img src="static/img/draw-btn.png" alt="..." class="" width="304">
           </a>
         </div>
-
-        <div>
-          <a href="#" class="" id="btnClear">
-              <img src="static/img/clear-btn.png" alt="..." class="" width="304">
-          </a>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <br>
         <div>
           <a href="#" class="" id="btnReset">

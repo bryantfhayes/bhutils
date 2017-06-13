@@ -39,7 +39,9 @@ def get_winner():
     choice = raffle.draw()
     if choice == None:
         choice = "Nobody Left..."
-    return jsonify(result=choice.upper())
+    allRaffle = list(set((list(map(lambda x: x.upper(), raffle._raffle)))))
+    random.shuffle(allRaffle)
+    return jsonify(result=choice.upper(), all=allRaffle, length=len(allRaffle), cycles=random.randint(35, 50))
 
 # Called when clear button is pressed
 @app.route('/_clear')
