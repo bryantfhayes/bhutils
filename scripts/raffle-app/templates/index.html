@@ -19,17 +19,119 @@
       });
     });
 
+    $(function() {
+      $('#btnDraw').bind('click', function() {
+        $.getJSON('/_get_winner', {
+
+        }, function(data) {
+          $("#winnerName").text(data.result);
+        });
+        return false;
+      });
+    });
+
+    $(function() {
+      $('#btnClear').bind('click', function() {
+        $.getJSON('/_clear', {
+
+        }, function(data) {
+          $("#winnerName").text(data.result);
+        });
+        return false;
+      });
+    });
+
+    $(function() {
+      $('#btnReset').bind('click', function() {
+        $.getJSON('/_reset', {
+
+        }, function(data) {
+          $("#winnerName").text(data.result);
+        });
+        return false;
+      });
+    });
+
   </script>
+
+  <style type="text/css">
+    body { background: #2E2E2E !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    h1 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 70px;
+      line-height: 14px;
+      color: #FFFFFF;
+    }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 60px;
+      line-height: 14px;
+      color: #FFFFFF;
+    }
+    #yellow h1 {
+      color:#F3D031;
+    }
+  </style>
 </head>
 
 <body>
 <div class="container">
-  <h2>Raffle-o-matic</h2>
-    <div>
-      <label>And the winner is:</label>
-      <span id="winnerName">?</span>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <center>
+        <img src="static/img/cog-raffle-logo.png" class="img-rounded" alt="COGRAFFLE" width="304" height="236">
+        <br>
+        <br>
+        <br>
+        <h5>AND THE WINNER IS...</h2>
+        <br>
+        <body id="yellow">
+          <h1 id="winnerName">???</h1>
+        </body>
+        <br>
+        <br>
+        <br>
+        <div>
+          <a href="#" class="" id="btnDraw">
+              <img src="static/img/draw-btn.png" alt="..." class="" width="304">
+          </a>
+        </div>
+
+        <div>
+          <a href="#" class="" id="btnClear">
+              <img src="static/img/clear-btn.png" alt="..." class="" width="304">
+          </a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>
+          <a href="#" class="" id="btnReset">
+              <img src="static/img/reset-btn.png" alt="..." class="" width="304">
+          </a>
+        </div>
+
+      </center>
     </div>
-    <button id="btnGetWinner" type="submit" class="btn btn-default">Get Next Winner</button>
+    <div class="col-md-2"></div>
+    </div>
+  </div>
 </div>
 
 </body>

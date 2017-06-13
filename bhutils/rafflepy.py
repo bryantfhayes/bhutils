@@ -23,6 +23,9 @@ class Raffle():
             for i in range(0, self._ticketDistribution[participant]):
                 self._raffle.append(participant)
 
+        # DEBUG
+        print(self._ticketDistribution)
+
         # Shuffle entries
         random.shuffle(self._raffle)
 
@@ -36,7 +39,7 @@ class Raffle():
     def draw(self):
         ''' Draw a ticket from the raffle entries '''
         if len(self._raffle) == 0:
-            raise ValueError("No entries in raffle!")
+            return None
         winner = random.choice(self._raffle)
 
         print(self._raffle)
