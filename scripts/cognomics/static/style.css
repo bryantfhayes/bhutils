@@ -1,0 +1,25 @@
+body { background: #2E2E2E !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+p {
+    line-height: 150%;
+}
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+.table-condensed{
+  font-size: 10px;
+}

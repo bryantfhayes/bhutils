@@ -1,0 +1,26 @@
+{
+	"players" : [
+		{
+			"name" : "bryant",
+			"cogbucks" : 1,
+			"vote_status" : "Not Voted"
+		},
+		{
+			"name" : "ben",
+			"cogbucks" : 2,
+			"vote_status" : "Voted"
+		}
+	],
+	"proposed_rule" : "",
+	"rules" : [
+		{
+			"id" : 0,
+			"text" : "A player wins when they have 10 cogbucks."
+		},
+		{
+			"id" : 1,
+			"text" : "Each player gets 1 cogbuck at the beginning of their turn."
+		}
+	],
+	"turn_counter" : 0
+}

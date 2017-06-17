@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="static/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+
+<nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">COGNOMICS</a>
+</nav>
+
+<body>
+
+<div class="container">
+  <center>
+    <button id="approveBtn" type="button" class="btn btn-success">Approve</button>
+    <button id="declineBtn" type="button" class="btn btn-danger">Decline</button>
+    <button id="clearBtn" type="button" class="btn btn-warning">Clear</button>
+  </center>
+  <br><br>
+
+  <h1>Proposed Rule</h1>
+  <blockquote>
+    <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
+    {% block rule %}
+    <footer>{{ gamedata.players[gamedata.turn_counter].name }}</footer>
+    {% endblock %}
+  </blockquote>
+
+  <br><br>
+  <center>
+    <div class="container">          
+      <table class="table table-bordered table-inverse table-condensed">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Cogbucks</th>
+            <th>Vote Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for player in gamedata["players"] %}
+          <tr>
+            <td> {{ player.name }} </td>
+            <td> {{ player.cogbucks }} </td>
+            <td> {{ player.vote_status }} </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </center>
+  <br><br>
+
+  <center>
+    <div class="container">          
+      <table class="table table-bordered table-inverse table-condensed">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for rule in gamedata["rules"] %}
+          <tr>
+            <td> {{ rule.id }} </td>
+            <td> {{ rule.text }} </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </center>
+</div>
+
+</body>
+
+<footer class="footer">
+<div class="navbar navbar-light bg-faded navbar-fixed-bottom">
+  <div class="container">
+    {% block footer %}
+    <h4 class="text-muted">Signed in as: {{ session["user"] }}</h4>
+    {% endblock %}
+  </div>
+</div>
+</footer>
+
+</html>
+

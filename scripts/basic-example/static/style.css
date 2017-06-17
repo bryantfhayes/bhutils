@@ -1,0 +1,22 @@
+body { background: #2E2E2E !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 3.5vw;
+  line-height: 14px;
+  color: #FFFFFF;
+}
+h5 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2.0vw;
+  line-height: 14px;
+  color: #FFFFFF;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 3.5vw;
+  line-height: 14px;
+  color: #FFFFFF;
+}
+#yellow h1 {
+  color:#F3D031;
+}

@@ -1,0 +1,12 @@
+{
+	"players" : {
+		"Bryant" : {
+			"Name" : "Bryant",
+			"Cogbucks" : 1
+		},
+		"Ben" : {
+			"Name" : "Ben",
+			"Cogbucks" : 2
+		}
+	}
+}

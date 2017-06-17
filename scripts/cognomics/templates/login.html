@@ -1,0 +1,10 @@
+{% block body %}
+{% if session['user'] %}
+<p>You're logged in already!</p>
+{% else %}
+<form action="/login" method="POST">
+  <input type="username" name="username" placeholder="Username">
+  <input type="submit" value="Log in">
+</form>
+{% endif %}
+{% endblock %}
